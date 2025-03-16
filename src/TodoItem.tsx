@@ -4,8 +4,9 @@
 import { useState } from "react";
 
 export default function TodoItem() {
-  let task: string;
   const [checked, setChecked] = useState(false);
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
 
   function handleChecked() {
     setChecked(checked);
@@ -15,7 +16,7 @@ export default function TodoItem() {
 
   return (
     <>
-      <input type="checkbox" name="isCompleted" onClick={handleChecked} />
+      <input type="checkbox" name="isCompleted" onChange={handleChecked} />
     </>
   );
 }
