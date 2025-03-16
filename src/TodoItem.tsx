@@ -3,20 +3,46 @@
 //Has a button to toggle done or not done
 import { useState } from "react";
 
-export default function TodoItem() {
+interface TodoListProps {
+  id: string;
+  label: string;
+}
+type Todo = {
+  id: number;
+  text: string;
+  completed: boolean;
+};
+
+export default function TodoItem(props: TodoListProps) {
   const [checked, setChecked] = useState(false);
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useState<Todo[]>([]);
   const [newTask, setNewTask] = useState("");
 
+  function addTask() {
+    if (newTask.trim() === "") return;
+    setTasks([
+      ...tasks,
+      { id: tasks.length + 1, text: newTask, completed: false },
+    ]);
+    setNewTask("");
+  }
+
   function handleChecked() {
-    setChecked(checked);
-    if (checked) {
-    }
+    setChecked((prev) => !prev);
   }
 
   return (
     <>
-      <input type="checkbox" name="isCompleted" onChange={handleChecked} />
+      <input
+        id={props.id}
+        type="checkbox"
+        name="isCompleted"
+        checked={checked}
+        onChange={handleChecked}
+      />
+      <label className="todoLabel" htmlFor={props.id}>
+        {props.label}
+      </label>
     </>
   );
 }
