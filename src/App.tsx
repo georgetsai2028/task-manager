@@ -8,11 +8,8 @@ function App() {
   return (
     <div className={dark}>
       <div className={flexCenter}>
-        <TodoList />
-        <TodoForm />
-        <TodoItem />
+        <TodoItem id={1} label="buy groceries" />
       </div>
-      ;
     </div>
   );
 }

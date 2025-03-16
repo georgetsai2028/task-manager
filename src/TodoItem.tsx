@@ -4,7 +4,7 @@
 import { useState } from "react";
 
 interface TodoListProps {
-  id: string;
+  id: number;
   label: string;
 }
 type Todo = {
