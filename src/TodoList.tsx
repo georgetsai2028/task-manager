@@ -1,19 +1,30 @@
 //Rercieve list of todos as props
 //Maps over todos & renders each item, use an array method like map
 import { useState } from "react";
-import TodoForm from "./TodoForm";
+import TodoInput from "./TodoForm";
+import { Todo } from "./model";
+
 function TodoList() {
-  const [tasks, setTasks] = useState([]);
-  const [newTask, setNewTask] = useState("");
+  const [todo, setTodo] = useState<string>("");
+  const [todoArray, setTodoArray] = useState<Todo[]>([]);
 
-  function handleInputChange(event) {}
+  const handleAddTask = (e: React.FormEvent) => {
+    e.preventDefault();
 
-  function addTask() {}
+    if (todo) {
+      setTodoArray([
+        ...todoArray,
+        { id: Date.now(), todo: todo, isDone: false },
+      ]);
+      setTodo("");
+    }
+  };
+  console.log(todoArray);
 
-  function deleteTask(index) {}
   return (
     <div>
       <h1> Todo List</h1>
+      <TodoInput todo={todo} setTodo={setTodo} handleAddTask={handleAddTask} />
     </div>
   );
 }
