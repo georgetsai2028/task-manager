@@ -1,4 +1,4 @@
-import { flexCenter } from "./App.css";
+import { flexCenter, inputStyle } from "./App.css";
 import { dark, light } from "./vars.css";
 import TodoList from "./TodoList";
 import TodoForm from "./TodoForm";
@@ -8,6 +8,9 @@ function App() {
   return (
     <div className={dark}>
       <div className={flexCenter}>
+        <div className={inputStyle}>
+          <TodoForm />
+        </div>
         <TodoItem id={1} label="buy groceries" />
       </div>
     </div>

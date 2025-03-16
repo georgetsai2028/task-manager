@@ -18,15 +18,6 @@ export default function TodoItem(props: TodoListProps) {
   const [tasks, setTasks] = useState<Todo[]>([]);
   const [newTask, setNewTask] = useState("");
 
-  function addTask() {
-    if (newTask.trim() === "") return;
-    setTasks([
-      ...tasks,
-      { id: tasks.length + 1, text: newTask, completed: false },
-    ]);
-    setNewTask("");
-  }
-
   function handleChecked() {
     setChecked((prev) => !prev);
   }

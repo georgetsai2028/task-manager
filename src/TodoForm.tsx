@@ -4,7 +4,15 @@ function TodoForm() {
   function TodoInput() {}
   return (
     <>
-      <input name="inputForm" />
+      <form className="input">
+        <input
+          type="input"
+          className="inputForm"
+          placeholder="Enter Task Here"
+        />
+
+        <button className="inputSubmit" type="submit"
+      </form>
     </>
   );
 }
