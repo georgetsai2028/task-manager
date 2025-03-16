@@ -1,8 +1,12 @@
 import { flexCenter } from "./App.css";
-import { vars } from "./vars.css";
+import { dark } from "./vars.css";
 
 function App() {
-  return <div className={flexCenter}>abc</div>;
+  return (
+    <div className={dark}>
+      <div className={flexCenter}>abc</div>;
+    </div>
+  );
 }
 
 export default App;
